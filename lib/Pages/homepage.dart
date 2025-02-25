@@ -20,21 +20,32 @@ class HomePage extends StatelessWidget{
           ,)
         ],
       ),
-      body: Column(
-        children: [
-          Row(
-            children: [
-              Image.asset('assets/temp/userimg.webp',
-              width: 40,
-              height: 40,),
-              Text("John styles",style: TextStyle(
-            color: AppStyle.font
-          ),)
-            ],
-          ),
-          
-        ],
+      body: ListView(
+        children: userfromserver(),
       ),
     );
   }
+}
+
+Widget _userItem (){
+  return Row(
+              children: [
+                Image.asset('assets/temp/userimg.webp',
+                width: 40,
+                height: 40,),
+                SizedBox(width: 8,),
+                Text("Frieren",style: TextStyle(
+              color: AppStyle.font
+            ),)
+              ],
+            );
+            
+}
+
+List<Widget> userfromserver(){
+  List<Widget> users = [];
+  for(var i = 0;i<50;i++){
+    users.add(_userItem());
+  }
+  return users;
 }
