@@ -17,7 +17,9 @@ class MyApp extends StatelessWidget{
     theme: ThemeData(
       fontFamily:'Dangrek',
       scaffoldBackgroundColor: AppStyle.background,
+      brightness: Brightness.dark
     ),
+    
    initialRoute: '/',
    routes: {
     '/' : (context) => LoginPage(),

@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_practice_application/app%20styles/Postitem.dart';
 import 'package:flutter_practice_application/app%20styles/app_style.dart';
 
 class HomePage extends StatelessWidget{
-  const HomePage ({super.key});
-
+  HomePage ({super.key});
+  List<String> users = [];
 @override
   Widget build(BuildContext context){
+    userfromserver();
     return Scaffold(
       
       appBar: AppBar(
@@ -20,32 +22,22 @@ class HomePage extends StatelessWidget{
           ,)
         ],
       ),
-      body: ListView(
-        children: userfromserver(),
-      ),
+      body: ListView.separated(itemBuilder: (context,index){
+       return PostItem(user: users[index],);
+      }, separatorBuilder: (BuildContext context, int index) { 
+        return SizedBox(
+          height: 20,  
+        );
+       }, itemCount: users.length,)
     );
   }
-}
-
-Widget _userItem (){
-  return Row(
-              children: [
-                Image.asset('assets/temp/userimg.webp',
-                width: 40,
-                height: 40,),
-                SizedBox(width: 8,),
-                Text("Frieren",style: TextStyle(
-              color: AppStyle.font
-            ),)
-              ],
-            );
-            
-}
-
-List<Widget> userfromserver(){
-  List<Widget> users = [];
+  userfromserver(){
   for(var i = 0;i<50;i++){
-    users.add(_userItem());
+    users.add('user number $i');
   }
-  return users;
 }
+
+
+}
+
+
