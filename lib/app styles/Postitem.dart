@@ -27,7 +27,7 @@ class PostItem extends StatelessWidget{
                     ],
                   ),
                    SizedBox(height: 15),
-          Image.asset('assets/temp/fanart.jpg',),
+          Image.asset('assets/temp/scenery.png',),
          
           Text("damn this shit bussinf fr brahhhh",style: TextStyle(
           fontSize: 20,
